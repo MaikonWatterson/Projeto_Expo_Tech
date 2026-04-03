@@ -5,11 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triaxon - Cadastro Hospitalar</title>
+    <link rel="icon" href="ícone.png" type="image/png">
+    <title>Cadastro de Médicos</title>
 
     <style>
 
-        /*Estilização do Corpo da Página*/
+/*Estilização do Corpo da Página*/
         body {
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,7 +24,7 @@
             margin: 0;
         }
 
-        /*Estilização da Caixa Principal*/
+/*Estilização da Caixa Principal*/
         .caixa {
             background-color: rgba(5, 56, 119, 0.3);
             border-radius: 20px;
@@ -34,52 +35,47 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        /*Estilização do layout das Linhas dos Formulários*/
+/*Estilização do layout das Linhas dos Formulários*/
         .linha {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
 
-        /*Largura das colunas dos Formulários*/
+/*Largura das colunas dos Formulários*/
 
-        /*Nome, Sobrenome, CRM, Data de Nascimento, Telefone, Email, Bairro, Cidade */
+/*Nome, Sobrenome, CRM, Data de Nascimento, Telefone, Email, Bairro, Cidade */
         .col-10, .col-20, .col-30, .col-24, .col-40, .col-50, .col-90, .col-100  {
             width: 50%;
         }
 
-        /*Endereço*/
+/*Endereço*/
         .col-12 {
             width: 100%;
         }
 
-        /*Rua*/
-        .col-60 {
+/*Rua, Número*/
+        .col-60, .col-70 {
             width: 40%;
         }
 
-        /*Número*/
-        .col-70 {
-            width: 40%;
-        }
-
-        /*CEP*/
+/*CEP*/
         .col-80 {
             width: 110%;
         }
 
-        /*Estado*/
+/*Estado*/
         .col-110 {
             width: 100%;
         }
 
-        /*Botão Enviar*/
+/*Botão Enviar*/
         .col-120 {
             width: 100%;
             margin-left: 64%;
         }
 
-        /*Largura dos Títulos dos Campos*/
+/*Largura dos Títulos dos Campos*/
         #nome, #sobrenome, #crm, #data_nascimento, #telefone, #email, #cep, #bairro, #cidade {
             width: 80%;
         }
@@ -98,12 +94,12 @@
         }
 
           #estado {
-            background-color: #005BFF;
+            background-color: #007bff;
         }
 
 
          
-         /*Estilização dos Campos de Formulários*/
+/*Estilização dos Campos de Formulários*/
         input[type="text"],
         input[type="email"],
         input[type="tel"],
@@ -339,7 +335,7 @@
         </div>
     </div>
 
-    <!-- Botão "Enviar" -->
+<!-- Botão "Enviar" -->
     <div class="linha">
         <div class="col-120">
         <input type="submit" id="submit" value="Enviar">

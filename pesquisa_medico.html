@@ -5,11 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triaxon - Cadastro Hospitalar</title>
+    <link rel="icon" href="ícone.png" type="image/png">
+    <title>Pesquisa de Médicos</title>
 
     <style>
 
-      /*Estilização do Corpo da Página*/
+/*Estilização do Corpo da Página*/
         body {
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,7 +24,7 @@
             margin: 0;
         }
 
-        /*Estilização da Caixa Principal*/
+/*Estilização da Caixa Principal*/
         .caixa {
             background-color: rgba(5, 56, 119, 0.3); 
             border-radius: 20px;
@@ -34,37 +35,33 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        /*Estilização do layout das Linhas dos Formulários*/
+/*Estilização do layout das Linhas dos Formulários*/
         .linha {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
 
-        /*Largura das colunas dos Formulários*/
+/*Largura das colunas dos Formulários*/
 
-        /*Nome e Sobrenome*/
+/*Nome e CRM*/
         .col-10, .col-20 {
             width: 50%;
         }
 
-        /*CPF e Data de Nascimento*/
-        .col-30, .col-24 {
-            width: 100%;
-        }
-
-        /*Botão Enviar*/
+/*Botão Enviar*/
         .col-120 {
             width: 100%;
-            padding-top: 100px;
+            padding-top: 50px;
             margin-left: 65%;
         }
 
-        /*Largura dos Títulos dos Campos*/
-        #nome, #sobrenome, #crm, #data_nascimento {
+/*Largura dos Títulos dos Campos*/
+        #nome, #crm {
             width: 80%;
         }
-        /*Estilização dos Campos de Formulários*/
+
+/*Estilização dos Campos de Formulários*/
         input[type="text"],
         input[type="email"],
         input[type="date"] {
@@ -170,7 +167,7 @@
     <span class="tab-title">Pesquisa de Médico</span>
   </div><br>
 
-  <!--Formulários de Pesquisa -->
+<!--Formulários de Pesquisa -->
     <form>
     <div class ="linha">
             <div class="col-10">
@@ -179,38 +176,12 @@
             </div>
 
             <div class="col-20">
-                <label for="sobrenome">Sobrenome</label><br>
-                    <input type="text" id="sobrenome" name="sobrenome"><br>
-            </div>
-    </div>
-
-    <div class="linha">
-            <div class="col-30">
                 <label for="CRM">CRM</label><br>
                     <input type="text" id="crm" name="crm" maxlength="6"><br>
             </div>
-            
-            <div class="col-24">
-                <label for="data_nascimento">Data de Nascimento</label><br>
-                    <input type="date" id="data_nascimento" name="data_nascimento"><br>
-            </div>
-
     </div>
 
-    <div class="linha">
-            <div class="col-24">
-                <label for="data_nascimento">Data de Admissão</label><br>
-                    <input type="date" id="data_nascimento" name="data_nascimento"><br>
-            </div>
-            
-            <div class="col-24">
-                <label for="data_nascimento">Data de Demissão</label><br>
-                    <input type="date" id="data_nascimento" name="data_nascimento"><br>
-            </div>
-
-    </div>
-
-    <!-- Botão Enviar -->
+<!-- Botão Enviar -->
     <div class="linha">
         <div class="col-120">
         <input type="submit" id="submit" value="Enviar">
