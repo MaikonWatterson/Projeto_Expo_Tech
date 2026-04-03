@@ -9,16 +9,7 @@
 
     <style>
 
-        .caixa {
-            background-color: rgba(5, 56, 119, 0.3); 
-            border-radius: 20px;
-            padding: 10px 0 10px 70px;
-            margin-left: 40px;
-            width: 800px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
+        /*Estilização do Corpo da Página*/
         body {
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -32,50 +23,38 @@
             margin: 0;
         }
 
+        /*Estilização da Caixa Principal*/
+        .caixa {
+            background-color: rgba(5, 56, 119, 0.3); 
+            border-radius: 20px;
+            padding: 10px 0 10px 70px;
+            margin-left: 40px;
+            width: 800px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /*Estilização do layout das Linhas dos Formulários*/
         .linha {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
 
-        /*ESTILIZAÇÃO DAS COLUNAS*/
-        /*Nome*/
-        .col-10 {
+        /*Largura das colunas dos Formulários*/
+
+        /*Nome e Sobrenome*/
+        .col-10, .col-20 {
             width: 50%;
         }
 
-        /*Sobrenome*/
-        .col-20 {
+        /*CPF, Data de Nascimento, Telefone, Email, Rua, Bairro, Cidade*/
+        .col-30, .col-24, .col-40, .col-50, .col-60, .col-90, .col-100 {
             width: 50%;
         }
 
-        /*CPF*/
-        .col-30 {
-            width: 100%;
-        }
-
-        /*Data de Nascimento*/
-        .col-24 {
-            width: 100%;
-        }
-
-        /*Telefone*/
-        .col-40 {
-            width: 100%;
-        }
-
-        /*Email*/
-        .col-50 {
-            width: 100%;
-        }
-
-        /*Endereço*/
+        /*Posicionamento do Título "Endereço"*/
         .col-12 {
-            width: 100%;
-        }
-
-        /*Rua*/
-        .col-60 {
             width: 100%;
         }
 
@@ -86,52 +65,22 @@
 
         /*CEP*/
         .col-80 {
-            width: 4000px;
+            width: 500%;
         }
 
-        /*Bairro*/
-        .col-90 {
-            width: 100%;
-        }
-
-        /*Cidade*/
-        .col-100 {
-            width: 100%;
-        }
-
-        /*Estado*/
+        /*Botão de Opções "Estado"*/
         .col-110 {
             width: 100%;
         }
-
+        
         /*Botão Enviar*/
         .col-120 {
             width: 100%;
             margin-left: 64%;
         }
 
-        /*ESTILIZAÇÃO DOS CAMPOS DE FORMULÁRIOS*/
-        #nome {
-            width: 80%;
-        }
-
-        #sobrenome {
-            width: 80%;
-        }
-
-        #cpf {
-            width: 80%;
-        }
-
-        #data_nascimento {
-            width: 80%;
-        }
-
-        #telefone {
-            width: 80%;
-        }
-
-        #email {
+        /*Largura dos Títulos dos Campos*/
+        #nome, #sobrenome, #cpf, #data_nascimento, #telefone, #email, #cep, #bairro, #cidade {
             width: 80%;
         }
 
@@ -147,133 +96,124 @@
         #number {
             margin-left: 5px;
         }
-
-        #cep {
-            width: 80%;
-        }
-
-        #ccep {
-            margin-left: 0;
-        }
-
-        #bairro {
-                width: 80%;
-        }
-
-        #cidade {
-                width: 80%;
-         }
-
          #estado {
             background-color: #053979;
             color: white;
          }
 
-         /*Código copiado de Perplexity*/
-
+         
+/*Estilização dos Campos de Formulários*/
         input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-select {
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #053979;
-  box-sizing: border-box;
-  font-size: 14px;
-  outline: none;
-}
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            box-sizing: border-box;
+            font-size: 14px;
+            outline: none;
+        }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus,
-select:focus {
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.2);
-}
+/*Estilização dos Campos em Foco (Ao Clicar)*/
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
-/* botoão */
-input[type="submit"] {
-  width: 200px;
-  padding: 12px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 8px;
-  background-color: #007bff;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.2s;
-}
+/*Estilização do Botão "Enviar" */
+        input[type="submit"] {
+            width: 200px;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
+        }
 
-input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-        
-.tab-header {
-  margin-bottom: 15px;
-  padding: 10px 15px 10px 0;
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 8px;
-}
+/*Cor do Botão "" ao Passar o Mouse */
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
 
-.tab-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+/*Cabeçalho da Caixa */
+        .tab-header {
+            margin-bottom: 15px;
+            padding: 10px 15px 10px 0;
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 8px;
+        }
 
-/* BOTÃO "VOLTAR" fora da caixa, no topo esquerdo */
-.voltar-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-}
+/*Estilização do Título do Cabeçalho da Caixa */
+        .tab-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-.voltar-btn {
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.15);
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  outline: none;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+/* Botão "Voltar" fora da caixa, no topo esquerdo */
+        .voltar-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
 
-.voltar-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
+/* Estilização Botão "Voltar" */
+        .voltar-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+/*Cor do Botão "Voltar" ao Passar o Mouse */
+        .voltar-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
     </style>
 
 </head>
 
 <body>
 
-    <!-- Botão Voltar (fora da caixa, no topo esquerdo da página) -->
+<!--Botão "Voltar"-->
 <div class="voltar-container">
   <a href="index.html">
     <button class="voltar-btn">Voltar</button>
   </a>
 </div>
 
+<!-- Caixa de Cadastro -->
 <div class="caixa">
-<!-- Aba Cadastro -->
   <div class="tab-header">
     <span class="tab-title">Cadastro de Paciente</span>
   </div><br>
 
+<!--Formulários de Cadastro -->
     <form>
     <div class ="linha">
             <div class="col-10">
@@ -287,7 +227,6 @@ input[type="submit"]:hover {
             </div>
     </div>
 
-    </form>
     <div class="linha">
             <div class="col-30">
                 <label for="CPF">CPF</label><br>
@@ -350,6 +289,7 @@ input[type="submit"]:hover {
                     <input type="text" id="cidade" name="cidade">
             </div>
     </div>
+    </form>
 
     <div class="linha">
         <div class="col-110">
@@ -386,14 +326,12 @@ input[type="submit"]:hover {
         </div>
     </div>
 
+    <!-- Botão "Enviar" -->
     <div class="linha">
         <div class="col-120">
         <input type="submit" id="submit" value="Enviar">
         </div>
     </div>
-     </form>
-
-
 </div>
 
 </body>
