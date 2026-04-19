@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="iicone.png" type="image/png">
+    <title> Cadastro de Pacientes</title>
+
+    <style>
+
+/*Estilização do Corpo da Página*/
+        body {
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(logot.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+/*Estilização da Caixa Principal*/
+        .caixa {
+            background-color: rgba(5, 56, 119, 0.3); 
+            border-radius: 20px;
+            padding: 10px 0 10px 70px;
+            margin-left: 40px;
+            width: 800px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /*Cabeçalho da Caixa */
+        .tab-header {
+            margin-bottom: 15px;
+            padding: 10px 15px 10px 0;
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 8px;
+        }
+
+/*Estilização do Título do Cabeçalho da Caixa */
+        .tab-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+/*Estilização do layout das Linhas dos Formulários*/
+        .linha {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+/*Largura das colunas dos Formulários*/
+
+/*Nome e Sobrenome*/
+        .col-10, .col-20 {
+            width: 50%;
+        }
+
+/*CPF, Data de Nascimento, Telefone, Email, Endereço, Bairro, Cidade*/
+        .col-30, .col-24, .col-40, .col-50, .col-60, .col-90, .col-100 {
+            width: 50%;
+        }
+
+/*Número*/
+        .col-70 {
+            width: 187%;
+        }
+
+/*CEP*/
+        .col-80 {
+            width: 500%;
+        }
+
+/*Botão de Opções "Estado"*/
+        .col-110 {
+            width: 100%;
+        }
+        
+/*Botão Enviar*/
+        .col-120 {
+            width: 100%;
+            margin-left: 64%;
+        }
+
+/*Largura dos Títulos dos Campos*/
+        #nome, #sobrenome, #cpf, #data_nascimento, #telefone, #email, #cep, #bairro, #cidade {
+            width: 80%;
+        }
+
+        #endereco {
+            width: 252px;
+        }
+
+        #numero {
+            width: 45%;
+            margin-left: 5px;
+        }
+
+        #number {
+            margin-left: 5px;
+        }
+         #estado {
+            background-color: #007bff;
+            color: white;
+         }
+         
+/*Estilização dos Campos de Formulários*/
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            box-sizing: border-box;
+            font-size: 14px;
+            outline: none;
+        }
+
+/*Estilização dos Campos em Foco (Ao Clicar)*/
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+/*Estilização do Botão "Enviar" */
+        input[type="submit"] {
+            width: 200px;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
+        }
+
+/*Cor do Botão "Enviar" ao Passar o Mouse */
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+/* Botão "Voltar" fora da caixa, no topo esquerdo */
+        .voltar-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+/* Estilização Botão "Voltar" */
+        .voltar-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+/*Cor do Botão "Voltar" ao Passar o Mouse */
+        .voltar-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!--Botão "Voltar"-->
+<div class="voltar-container">
+  <a href="index.html">
+    <button class="voltar-btn">Voltar</button>
+  </a>
+</div>
+
+<!-- Caixa de Cadastro -->
+<div class="caixa">
+  <div class="tab-header">
+    <span class="tab-title">Cadastro de Paciente</span>
+  </div><br>
+
+<!--Formulários de Cadastro -->
+<form action="{{ url_for('cadastrar_paciente_route') }}" method="POST">
+    <div class ="linha">
+            <div class="col-10">
+                <label for="nome" id="name">Nome</label><br>
+                    <input type="text" id="nome" name="pac_nome" placeholder="Nome">
+            </div>
+
+            <div class="col-20">
+                <label for="sobrenome">Sobrenome</label><br>
+                    <input type="text" id="sobrenome" name="pac_sobrenome" placeholder="Sobrenome"><br>
+            </div>
+    </div>
+
+    <div class="linha">
+            <div class="col-30">
+                <label for="CPF">CPF</label><br>
+                    <input type="text" id="cpf" name="pac_cpf" placeholder="CPF" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" maxlength="14"><br>
+            </div>
+            
+            <div class="col-24">
+                <label for="data_nascimento">Data de Nascimento</label><br>
+                    <input type="date" id="data_nascimento" name="pac_data_nasc" placeholder="Data de Nascimento"><br>
+            </div>
+
+    </div>
+
+    <div class="linha">
+            <div class="col-40">
+                <label for="telefone">Telefone</label><br>
+                    <input type="tel" id="telefone" name="pac_telefone" placeholder="Telefone" pattern="[0-9]{2} [0-9]{4,5}-[0-9]{4}" maxlength="13"><br>
+            </div>
+
+            <div class="col-50">
+                <label for="email">Email</label><br>
+                    <input type="email" id="email" name="pac_email" placeholder="Email"><br>
+            </div>
+    </div>
+
+    <div class="linha">
+            <div class="col-60">
+                <label for="rua">Endereço</label><br>
+                    <input type="text" id="endereco" name="pac_endereco" placeholder="Endereço">
+            </div>
+
+            <div class="col-70">
+                <label for="numero" id="number">Nº</label><br>
+                    <input type="text" id="numero" name="pac_numero" placeholder="Número" maxlength="5">
+            </div>
+        
+            
+            <div class="col-80">
+        <label for="cep" id="ccep">CEP</label><br>
+            <input type="text" id="cep" name="pac_cep" pattern="[0-9]{5}-[0-9]{3}" placeholder="CEP" maxlength="9"><br>
+        
+        </div>
+    </div>
+
+
+    <div class="linha">
+            <div class="col-90">
+                <label for="bairro">Bairro</label><br>
+                    <input type="text" id="bairro" name="pac_bairro" placeholder="Bairro">
+            </div>
+
+            <div class="col-100">
+                <label for="cidade">Cidade</label><br>
+                    <input type="text" id="cidade" name="pac_cidade" placeholder="Cidade">
+            </div>
+    </div>
+    
+
+    <div class="linha">
+        <div class="col-110">
+        <label for="estado">Estado</label><br>
+                <select id="estado" name="pac_estado">
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select><br><br>
+        </div>
+    </div>
+
+<!-- Botão "Enviar" -->
+    <div class="linha">
+        <div class="col-120">
+        <input type="submit" id="submit" value="Enviar">
+        </div>
+    </div>
+</form>
+</div>
+
+
+</body>
+
+</html>
