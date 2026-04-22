@@ -111,21 +111,45 @@
             letter-spacing: 0.5px;
         }
 
+        /* Botão "Voltar" fora da caixa, no topo esquerdo */
+        .voltar-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+/* Estilização Botão "Voltar" */
+        .voltar-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+/*Cor do Botão "Voltar" ao Passar o Mouse */
+        .voltar-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
     </style>
 
 </head>
 
 <body>
 
-<!-- Navegação no topo da página -->
-  <nav>
-    <ul>
-      <li><a href="C:\Users\maiko\Desktop\Projeto - Expo Tech\templates\paciente_cadastro.html">Cadastro de Paciente</a></li>
-      <li><a href="C:\Users\maiko\Desktop\Projeto - Expo Tech\templates\medico_cadastro.html">Cadastro de Médico</a></li>
-      <li><a href="C:\Users\maiko\Desktop\Projeto - Expo Tech\templates\pesquisa_paciente.html">Pesquisa de Paciente</a></li>
-      <li><a href="C:\Users\maiko\Desktop\Projeto - Expo Tech\templates\pesquisa_medico.html">Pesquisa de Médico</a></li>
-    </ul>
-  </nav>
+<!--Botão "Voltar"-->
+<div class="voltar-container">
+  <a href="index.html">
+    <button class="voltar-btn">Voltar</button>
+  </a>
+</div>
 
 <div class="conteudo">
   <!-- Logotipo -->
@@ -137,19 +161,7 @@
 <div class="caixa">
   <div class="tab-header">
     <span class="tab-title">Sobre o Triaxon</span><br><br><br><br>
-    <h3>
-        O Triaxon é um software desenvolvido a princípio para <br>
-        cadastro e pesquisa, de médicos e pacientes, voltado para a <br>
-        área hospitalar. Porém, pode ser modificado para qualquer <br>
-        cadastro e pesquisa simples. É um desenvolvimento de autoria <br>
-        de Maikon Watterson, aluno do 1º semestre de ADS - Análise e <br>
-        Desenvolvimento de Sistemas, pela UniFecaf - Centro Universitário.
-    </h3><br><br>
-    <h4>
-        O Software em si, realiza o cadastro de pacientes, cadastro de médicos, pequisa
-        por pacientes e pesquisa por médicos, facilitando assim, o gerenciamento e
-        controle de dados de ambos, relacionando-os <br> para fácil entendimento.
-    </h4>
+    
   </div>
 </div>
 

@@ -1,7 +1,10 @@
-from flask import request, redirect, url_for
+from flask import Flask, request, redirect, url_for
 import mysql.connector
 from mysql.connector import Error
 
+app = Flask(__name__)
+
+# Configuração do banco de dados
 db_config = {
     'host': 'localhost',
     'user': 'MaikonWatterson',
@@ -23,8 +26,8 @@ def cadastrar_medico():
     try:
         med_nome = request.form['med_nome']
         med_sobrenome = request.form['med_sobrenome']
+        med_cpf = request.form['med_cpf']
         crm = request.form['crm']
-        med_data_nasc = request.form['med_data_nasc']
         med_telefone = request.form['med_telefone']
         med_email = request.form['med_email']
         data_admissao = request.form['data_admissao']
@@ -37,25 +40,16 @@ def cadastrar_medico():
         med_estado = request.form['med_estado']
 
         conn = get_db_connection()
-        if not conn:
-            return "Erro de conexão com o banco", 500
-
         cursor = conn.cursor()
         sql = """
-            INSERT INTO Medicos 
-            (med_nome, med_sobrenome, crm, med_data_nasc, med_telefone, med_email, 
-             data_admissao, data_demissao, med_endereco, med_numero, med_cep, med_bairro, med_cidade, med_estado)
+            INSERT INTO tb_medico (med_nome, med_sobrenome, med_cpf, crm, med_telefone, med_email, data_admissao, data_demissao, med_endereco, med_numero, med_cep, med_bairro, med_cidade, med_estado)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """
-        valores = (
-            med_nome, med_sobrenome, crm, med_data_nasc,
-            med_telefone, med_email, data_admissao, data_demissao,
-            med_endereco, med_numero, med_cep, med_bairro, med_cidade, med_estado
-        )
+              """
+        valores = (med_nome, med_sobrenome, med_cpf, crm, med_telefone, med_email, data_admissao, data_demissao, med_endereco, med_numero, med_cep, med_bairro, med_cidade, med_estado)
         cursor.execute(sql, valores)
         conn.commit()
         cursor.close()
-        conn.close()
+        conn.close()    
         return redirect(url_for('index'))
     except Error as e:
         print(f"Erro MySQL: {e}")

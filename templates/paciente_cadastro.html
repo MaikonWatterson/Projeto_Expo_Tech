@@ -5,7 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="iicone.png" type="image/png">
+
+    <link rel="icon" href="C:\Users\maiko\Desktop\Projeto - Expo Tech\static\iicone.png" type="image/png">
+    
     <title> Cadastro de Pacientes</title>
 
     <style>
@@ -113,6 +115,10 @@
             background-color: #007bff;
             color: white;
          }
+
+         ::placeholder {
+            color: rgb(255, 255, 255, 0.3);
+         }
          
 /*Estilização dos Campos de Formulários*/
         input[type="text"],
@@ -124,7 +130,7 @@
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 8px;
             background-color: rgba(255, 255, 255, 0.15);
-            color: white;
+            color: rgb(255, 255, 255, 0.3);
             box-sizing: border-box;
             font-size: 14px;
             outline: none;
@@ -136,9 +142,17 @@
         input[type="tel"]:focus,
         input[type="date"]:focus,
         select:focus {
+            color: white;
             border-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        input[type="text"]:not(:placeholder-shown),
+        input[type="email"]:not(:placeholder-shown),
+        input[type="tel"]:not(:placeholder-shown),
+        input[type="date"]:not(:placeholder-shown) {
+            color: white !important;
         }
 
 /*Estilização do Botão "Enviar" */
@@ -209,28 +223,28 @@
   </div><br>
 
 <!--Formulários de Cadastro -->
-<form action="{{ url_for('cadastrar_paciente_route') }}" method="POST">
+<form action="http://127.0.0.1:5000/cadastrar_paciente" method="POST">
     <div class ="linha">
             <div class="col-10">
                 <label for="nome" id="name">Nome</label><br>
-                    <input type="text" id="nome" name="pac_nome" placeholder="Nome">
+                    <input type="text" id="nome" name="pac_nome" placeholder="ex: João">
             </div>
 
             <div class="col-20">
                 <label for="sobrenome">Sobrenome</label><br>
-                    <input type="text" id="sobrenome" name="pac_sobrenome" placeholder="Sobrenome"><br>
+                    <input type="text" id="sobrenome" name="pac_sobrenome" placeholder="ex: Souza"><br>
             </div>
     </div>
 
     <div class="linha">
             <div class="col-30">
                 <label for="CPF">CPF</label><br>
-                    <input type="text" id="cpf" name="pac_cpf" placeholder="CPF" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" maxlength="14"><br>
+                    <input type="text" id="cpf" name="pac_cpf" placeholder="000.000.000-00" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" maxlength="14"><br>
             </div>
             
             <div class="col-24">
                 <label for="data_nascimento">Data de Nascimento</label><br>
-                    <input type="date" id="data_nascimento" name="pac_data_nasc" placeholder="Data de Nascimento"><br>
+                    <input type="date" id="data_nascimento" name="pac_data_nasc"><br>
             </div>
 
     </div>
@@ -238,30 +252,30 @@
     <div class="linha">
             <div class="col-40">
                 <label for="telefone">Telefone</label><br>
-                    <input type="tel" id="telefone" name="pac_telefone" placeholder="Telefone" pattern="[0-9]{2} [0-9]{4,5}-[0-9]{4}" maxlength="13"><br>
+                    <input type="tel" id="telefone" name="pac_telefone" placeholder="00 000000-0000" pattern="[0-9]{2} [0-9]{4,5}-[0-9]{4}" maxlength="13"><br>
             </div>
 
             <div class="col-50">
                 <label for="email">Email</label><br>
-                    <input type="email" id="email" name="pac_email" placeholder="Email"><br>
+                    <input type="email" id="email" name="pac_email" placeholder="email@email.com"><br>
             </div>
     </div>
 
     <div class="linha">
             <div class="col-60">
-                <label for="rua">Endereço</label><br>
-                    <input type="text" id="endereco" name="pac_endereco" placeholder="Endereço">
+                <label for="endereco">Endereço</label><br>
+                    <input type="text" id="endereco" name="pac_endereco" placeholder="Rua/Avenida">
             </div>
 
             <div class="col-70">
                 <label for="numero" id="number">Nº</label><br>
-                    <input type="text" id="numero" name="pac_numero" placeholder="Número" maxlength="5">
+                    <input type="text" id="numero" name="pac_numero" placeholder="Nº" maxlength="5">
             </div>
         
             
             <div class="col-80">
         <label for="cep" id="ccep">CEP</label><br>
-            <input type="text" id="cep" name="pac_cep" pattern="[0-9]{5}-[0-9]{3}" placeholder="CEP" maxlength="9"><br>
+            <input type="text" id="cep" name="pac_cep" pattern="[0-9]{5}-[0-9]{3}" placeholder="00000-000" maxlength="9"><br>
         
         </div>
     </div>
@@ -270,12 +284,12 @@
     <div class="linha">
             <div class="col-90">
                 <label for="bairro">Bairro</label><br>
-                    <input type="text" id="bairro" name="pac_bairro" placeholder="Bairro">
+                    <input type="text" id="bairro" name="pac_bairro" placeholder="ex: Jardins">
             </div>
 
             <div class="col-100">
                 <label for="cidade">Cidade</label><br>
-                    <input type="text" id="cidade" name="pac_cidade" placeholder="Cidade">
+                    <input type="text" id="cidade" name="pac_cidade" placeholder="ex: São Paulo">
             </div>
     </div>
     

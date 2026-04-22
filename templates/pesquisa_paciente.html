@@ -60,6 +60,10 @@
             width: 80%;
         }
 
+        ::placeholder {
+            color: rgb(255, 255, 255, 0.3);
+        }
+
 /*Estilização dos Campos de Formulários*/
         input[type="text"],
         input[type="date"] {
@@ -67,18 +71,22 @@
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 8px;
             background-color: rgba(255, 255, 255, 0.15);
-            color: white;
+            color: rgb(255, 255, 255, 0.3);
             box-sizing: border-box;
             font-size: 14px;
             outline: none;
         }
 
 /*Estilização dos Campos em Foco (Ao Clicar)*/
-        input[type="text"]:focus,
-        input[type="date"]:focus {
+        input[type="text"]:focus {
+            color: white;
             border-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        input[type="text"]:not(:placeholder-shown) {
+            color: white !important;
         }
 
 /*Estilização do Botão "Enviar" */
@@ -165,16 +173,16 @@
     <span class="tab-title">Pesquisa de Paciente</span>
   </div><br>
 
-    <form>
+    <form action="/pesquisar_paciente" method="POST">
     <div class ="linha">
             <div class="col-10">
                 <label for="nome" id="name">Nome</label><br>
-                    <input type="text" id="nome" name="nome">
+                    <input type="text" id="nome" name="nome" placeholder="Nome do Paciente">
             </div>
 
             <div class="col-20">
                 <label for="CPF">CPF</label><br>
-                    <input type="text" id="cpf" name="cpf" maxlength="11"><br>
+                    <input type="text" id="cpf" name="cpf" placeholder="CPF do Paciente" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" maxlength="14"><br>
             </div>
     </div>
 

@@ -71,7 +71,7 @@
         }
 
 /*Largura dos Títulos dos Campos*/
-        #nome, #sobrenome, #crm, #data_nascimento, #data_admissao, #data_demissao, #telefone, #email, #cep, #bairro, #cidade {
+        #nome, #sobrenome, #crm, #cpf, #data_admissao, #data_demissao, #telefone, #email, #cep, #bairro, #cidade {
             width: 80%;
         }
 
@@ -92,7 +92,9 @@
             background-color: #007bff;
         }
 
-
+        ::placeholder {
+            color: rgb(255, 255, 255, 0.3);
+         }
          
 /*Estilização dos Campos de Formulários*/
         input[type="text"],
@@ -104,10 +106,14 @@
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 8px;
             background-color: rgba(255, 255, 255, 0.15);
-            color: white;
+            color: rgb(255, 255, 255, 0.3);
             box-sizing: border-box;
             font-size: 14px;
             outline: none;
+        }
+
+        select {
+            color: white;
         }
 
 /*Estilização dos Campos em Foco (Ao Clicar)*/
@@ -116,9 +122,17 @@
         input[type="tel"]:focus,
         input[type="date"]:focus,
         select:focus {
+            color: white;
             border-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        input[type="text"]:not(:placeholder-shown),
+        input[type="email"]:not(:placeholder-shown),
+        input[type="tel"]:not(:placeholder-shown),
+        input[type="date"]:not(:placeholder-shown) {
+            color: white !important;
         }
 
 /*Estilização do Botão "Enviar" */
@@ -145,7 +159,7 @@
 /*Cabeçalho da Caixa */
         .tab-header {
             margin-bottom: 15px;
-            padding: 10px 15px;
+            padding-top: 10px;
             background-color: rgba(255, 255, 255, 0);
             border-radius: 8px;
             }
@@ -205,41 +219,40 @@
     <span class="tab-title">Cadastro de Médico</span>
   </div><br>
 
-<form action="{{ url_for('cadastrar_medico_route') }}" method="POST">
+<form action="http://127.0.0.1:5000/cadastrar_medico" method="POST">
     <div class ="linha">
             <div class="col-10">
                 <label for="nome" id="name">Nome</label><br>
-                    <input type="text" id="nome" name="med_nome">
+                    <input type="text" id="nome" name="med_nome" placeholder="ex: João">
             </div>
 
             <div class="col-20">
                 <label for="sobrenome">Sobrenome</label><br>
-                    <input type="text" id="sobrenome" name="med_sobrenome"><br>
+                    <input type="text" id="sobrenome" name="med_sobrenome" placeholder="ex: Souza"><br>
             </div>
     </div>
 
     <div class="linha">
-            <div class="col-30">
-                <label for="CRM">CRM</label><br>
-                    <input type="text" id="crm" name="crm" maxlength="6"><br>
-            </div>
-            
             <div class="col-24">
-                <label for="data_nascimento">Data de Nascimento</label><br>
-                    <input type="date" id="data_nascimento" name="med_data_nasc"><br>
+                <label for="cpf">CPF</label><br>
+                    <input type="text" id="cpf" name="med_cpf" placeholder="000.000.000-00" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" maxlength="14"><br>
             </div>
 
+            <div class="col-30">
+                <label for="CRM">CRM</label><br>
+                    <input type="text" id="crm" name="crm" placeholder="CRM/UF 000000" maxlength="6"><br>
+            </div>
     </div>
 
     <div class="linha">
             <div class="col-40">
                 <label for="telefone">Telefone</label><br>
-                    <input type="tel" id="telefone" name="med_telefone" pattern="[0-9]{2} [0-9]{4,5}-[0-9]{4}" maxlength="13"><br>
+                    <input type="tel" id="telefone" name="med_telefone" placeholder="00 00000-0000" pattern="[0-9]{2} [0-9]{4,5}-[0-9]{4}" maxlength="13"><br>
             </div>
 
             <div class="col-50">
                 <label for="email">Email</label><br>
-                    <input type="email" id="email" name="med_email"><br>
+                    <input type="email" id="email" name="med_email" placeholder="email@email.com"><br>
             </div>
     </div>
 
@@ -258,19 +271,19 @@
 
     <div class="linha">
             <div class="col-60">
-                <label for="rua">Endereço</label><br>
-                    <input type="text" id="endereco" name="med_endereco"><br>
+                <label for="endereco">Endereço</label><br>
+                    <input type="text" id="endereco" name="med_endereco" placeholder="Rua/Avenida"><br>
             </div>
 
             <div class="col-70">
                 <label for="numero" id="number">Nº</label><br>
-                    <input type="text" id="numero" name="med_numero">
+                    <input type="text" id="numero" name="med_numero" placeholder="Nº">
             </div>
         
             
             <div class="col-80">
         <label for="cep" id="ccep">CEP</label><br>
-            <input type="text" id="cep" name="med_cep" pattern="[0-9]{5}-[0-9]{3}" maxlength="9"><br>
+            <input type="text" id="cep" name="med_cep" placeholder="00000-000" pattern="[0-9]{5}-[0-9]{3}" maxlength="9"><br>
         
         </div>
     </div>
@@ -279,12 +292,12 @@
     <div class="linha">
             <div class="col-90">
                 <label for="bairro">Bairro</label><br>
-                    <input type="text" id="bairro" name="med_bairro">
+                    <input type="text" id="bairro" name="med_bairro" placeholder="ex: Jardins">
             </div>
 
             <div class="col-100">
                 <label for="cidade">Cidade</label><br>
-                    <input type="text" id="cidade" name="med_cidade">
+                    <input type="text" id="cidade" name="med_cidade" placeholder="ex: São Paulo">
             </div>
     </div>
 

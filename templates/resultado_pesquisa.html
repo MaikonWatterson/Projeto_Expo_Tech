@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="C:\Users\maiko\Desktop\Projeto - Expo Tech\static\iicone.png" type="image/png">
+
+    <title>Resultado da Pesquisa</title>
+
+    
+    <style>
+
+        body {
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(logot.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /*Estilização da Caixa Principal*/
+        .caixa {
+            background-color: rgba(5, 56, 119, 0.3); 
+            border-radius: 20px;
+            padding: 10px 0 0 0;
+            width: 80%;
+            height: 80%;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /*Cabeçalho da Caixa */
+        .tab-header {
+            margin-bottom: 15px;
+            margin-left: 20px;
+            padding: 0;
+            text-align: start;
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 8px;
+        }
+
+/*Estilização do Título do Cabeçalho da Caixa */
+        .tab-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Botão "Voltar" fora da caixa, no topo esquerdo */
+        .voltar-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+/* Estilização Botão "Voltar" */
+        .voltar-btn {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+/* Cor do Botão "Voltar" ao Passar o Mouse */
+        .voltar-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+/* Container da tabela com scroll */
+        .tabela-wrapper {
+            flex: 1; /*Ocupa o resto da altura da .caixa*/
+            overflow-y: auto; /*Scroll vertical se passar da altura*/
+            overflow-x: auto; /*Scroll horizontal se passar da largura*/
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+
+/*Estilo da Tabela*/
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: white;
+        }
+        
+        th, td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 12px;
+            text-align: left;
+            white-space: nowrap; /*Não quebra linha , força scroll horizontal*/
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.15);
+            position: sticky; /*Cabeçalho gruda no topo ao rolar*/
+            top: 0;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-acao {
+            padding: 5px 10px;
+            background-color: rgba(40, 167, 69, 0.8);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .btn-acao:hover {
+            background-color: rgba(40, 167, 69, 0.1);
+        }
+
+        .sem-resultado {
+            text-align: center;
+            padding: 40px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7)
+        }
+
+        .total {
+            font-size: 14px;
+            margin: 0 0 10px 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+/*Scrollbar customizada pro tema escuro*/
+        .tabela-wrapper::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .tabela-wrapper::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .tabela-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+
+<!--Botão "Voltar"-->
+        <div class="voltar-container">
+            <a href="index.html">
+            <button class="voltar-btn">Voltar</button>
+            </a>
+        </div>
+
+  <!-- Caixa de Cadastro -->
+        <div class="caixa">
+            <div class="tab-header">
+                <span class="tab-title">Resultado da Pesquisa:</span><br><br><br><br>
+                <a href="pesquisa_paciente.html" class="voltar">Nova Pesquisa</a>
+            </div>
+
+
+            {% if pacientes %}
+                <p class="total">Total: {{ patientes|length }} pacientes encontrados.</p>
+
+                <div class="tabela-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Sobrenome</th>
+                                <th>CPF</th>
+                                <th>Data de Nascimento</th>
+                                <th>Telefone</th>
+                                <th>Email</th>
+                                <th>Data de Cadastro</th>
+                                <th>Endereço</th>
+                                <th>Número</th>
+                                <th>CEP</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pac in pacientes %}
+                            <tr>
+                                <td>{{ pac.pac_id }}</td>
+                                <td>{{ pac.pac_nome }}</td>
+                                <td>{{ pac.pac_sobrenome }}</td>
+                                <td>{{ pac.pac_cpf }}</td>
+                                <td>{{ pac.pac_data_nasc }}</td>
+                                <td>{{ pac.pac_telefone }}</td>
+                                <td>{{ pac.pac_email }}</td>
+                                <td>{{ pac.data_cadastro }}</td>
+                                <td>{{ pac.pac_endereco }}</td>
+                                <td>{{ pac.pac_numero }}</td>
+                                <td>{{ pac.pac_cep }}</td>
+                                <td>{{ pac.pac_bairro }}</td>
+                                <td>{{ pac.pac_cidade }}</td>
+                                <td>{{ pac.pac_estado }}</td>
+                                <td>
+                                    <a href="/editar_paciente/{{ pac.pac_id}}" class="btn-acao">Editar</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="sem-resultado">
+                    <p>Nenhum paciente encontrado com os dados utilidados.</p>
+                </div>
+            {% endif %}
+        </div>
+</body>
+
+</html>

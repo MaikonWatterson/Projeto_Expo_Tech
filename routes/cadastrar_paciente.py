@@ -1,9 +1,8 @@
 from flask import Flask, request, redirect, url_for
-
 import mysql.connector
 from mysql.connector import Error
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
+app = Flask(__name__)
 
 # Configuração do banco de dados
 db_config = {
@@ -31,7 +30,7 @@ def cadastrar_paciente():
         pac_data_nasc = request.form['pac_data_nasc']
         pac_telefone = request.form['pac_telefone']
         pac_email = request.form['pac_email']
-        pac_rua = request.form['pac_rua']
+        pac_endereco = request.form['pac_endereco']
         pac_numero = request.form['pac_numero']
         pac_cep = request.form['pac_cep']
         pac_bairro = request.form['pac_bairro']
@@ -41,10 +40,10 @@ def cadastrar_paciente():
         conn = get_db_connection()
         cursor = conn.cursor()
         sql = """
-            INSERT INTO Pacientes (pac_nome, pac_sobrenome, pac_cpf, pac_data_nasc, pac_telefone, pac_email, pac_rua, pac_numero, pac_cep, pac_bairro, pac_cidade, pac_estado)
+            INSERT INTO tb_paciente (pac_nome, pac_sobrenome, pac_cpf, pac_data_nasc, pac_telefone, pac_email, pac_endereco, pac_numero, pac_cep, pac_bairro, pac_cidade, pac_estado)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """
-        valores = (pac_nome, pac_sobrenome, pac_cpf, pac_data_nasc, pac_telefone, pac_email, pac_rua, pac_numero, pac_cep, pac_bairro, pac_cidade, pac_estado)
+              """
+        valores = (pac_nome, pac_sobrenome, pac_cpf, pac_data_nasc, pac_telefone, pac_email, pac_endereco, pac_numero, pac_cep, pac_bairro, pac_cidade, pac_estado)
         cursor.execute(sql, valores)
         conn.commit()
         cursor.close()
